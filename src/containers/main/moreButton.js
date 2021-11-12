@@ -1,8 +1,11 @@
-import React, {useState} from 'react';
+import React from 'react';
 
-export default function ViewMore ({onclickmore}){
+export default function ViewMore (props){
+    
+    console.log(props);// Чому onClick - перетворюється в onclick.
+    const {onclick} = props;
    /*  const step=3;
-    const [loadMore,setLoadMore]=useState(step);
+    const [loadMore,setLoadMore]=React.useState(step);
     const handleEvent = () => {
         setLoadMore(loadMore+step);
         console.log(loadMore);
@@ -10,7 +13,7 @@ export default function ViewMore ({onclickmore}){
 
     return(
         <div className="col s12 center-align">
-            <a className="waves-effect waves-light btn-large" onClick={onclickmore}>View More</a>
+            <button className="waves-effect waves-light btn-large" onClick={onclick}>View More</button>
         </div>
     );
 }

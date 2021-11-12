@@ -17,7 +17,7 @@ export default function Articles () {
 return (
     <div className="row">
         
-        { articles.map((el) => <Article key={el.title} title={el.title} img={el.img}/> ) }
+        {articles.map((el) => <Article title={el.title} img={el.img}/> )}
 
         <ViewMore onclick={handleEvent}/>
     </div>
