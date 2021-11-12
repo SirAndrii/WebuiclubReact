@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-export default function ViewMore ({onclick}){
+export default function ViewMore ({onclickmore}){
    /*  const step=3;
     const [loadMore,setLoadMore]=useState(step);
     const handleEvent = () => {
@@ -10,7 +10,7 @@ export default function ViewMore ({onclick}){
 
     return(
         <div className="col s12 center-align">
-            <a className="waves-effect waves-light btn-large" onClick={onclick}>View More</a>
+            <a className="waves-effect waves-light btn-large" onClick={onclickmore}>View More</a>
         </div>
     );
 }

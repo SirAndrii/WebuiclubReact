@@ -6,7 +6,8 @@ import {objArticles} from "../data";
 export default function Articles () {
     const step=3;
     const [loadMore, setLoadMore] = useState(step);
-    const handleEvent = () => {
+    //Чому воно працює не дуже розумію, передаєм як колбек функцію, але в той же час маєм доступ до батьківського стейту 
+        const handleEvent = () => {
         setLoadMore(loadMore+step);
         console.log(loadMore);
     }
@@ -16,7 +17,7 @@ export default function Articles () {
 return (
     <div className="row">
         
-        {articles.map((el) => <Article title={el.title} img={el.img}/> )}
+        { articles.map((el) => <Article key={el.title} title={el.title} img={el.img}/> ) }
 
         <ViewMore onclick={handleEvent}/>
     </div>
