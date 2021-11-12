@@ -1,11 +1,24 @@
-import React from "react";
+import React, {useState} from "react";
 import Article from "../containers/main/article";
-import {objArticles} from "../data"; //
+import ViewMore from "../containers/main/moreButton";
+import {objArticles} from "../data"; 
 
 export default function Articles () {
+    const step=3;
+    const [loadMore, setLoadMore] = useState(step);
+    const handleEvent = () => {
+        setLoadMore(loadMore+step);
+        console.log(loadMore);
+    }
+
+    let articles = objArticles.slice(0,loadMore);
+
 return (
     <div className="row">
-        {objArticles.slice(0,3).map((el) => <Article title={el.title} img={el.img}/> )}
+        
+        {articles.map((el) => <Article title={el.title} img={el.img}/> )}
+
+        <ViewMore onclick={handleEvent}/>
     </div>
 );
 }
