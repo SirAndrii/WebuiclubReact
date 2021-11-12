@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <header>
         <nav>
-            <div className="nav-wrapper" style={{display:'flex', flexDirection: 'row', justifyContent: 'space-around' }}>
+            <div className="nav-wrapper" style={{display:'flex', flexDirection: 'row'}}>
               <a href="#!"><Logo /></a>
               <Menu />
             </div>
