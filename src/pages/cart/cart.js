@@ -2,6 +2,6 @@ import React from "react";
 
 export default function Cart(){
     return(
-     <div>Furure cart</div>
+     <h2>Furure cart</h2>
     );
 }
