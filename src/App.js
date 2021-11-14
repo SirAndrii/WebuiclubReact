@@ -9,8 +9,8 @@ export default function App() {
   return (
     <React.Fragment>
       <Header />
-      <Main />
-      {/* <Catalog /> */}
+      {/* <Main /> */}
+      <Catalog />
       <Footer />
     </React.Fragment>
   );
