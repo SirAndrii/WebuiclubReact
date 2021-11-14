@@ -5,12 +5,12 @@ import  './Menu.css'
 
 function Li (props){
   //console.log(useLocation().pathname, props.children.props.to)
-  let isactive = (useLocation().pathname === props.children.props.to) ? "active": "";
-  return(
+    let isactive= (useLocation().pathname === props.children.props.to) ? "active": undefined;
+    return(
     <li className={isactive}>{props.children}</li>
   )
 }
-{/* <li className={location.pathname.startsWith('/about') && 'active'} */}
+
 export default function Menu (){
     
     const links=[
@@ -25,7 +25,7 @@ export default function Menu (){
     <ul className="right hide-on-med-and-down">
         {links.map(link => { 
             return (
-              <Li>
+              <Li key={link.url}>
                 <NavLink 
                   to={link.url} 
                   className={({ isActive }, cls="waves-effect waves-light btn") => isActive ? cls +" green" : cls+ " red" }>
