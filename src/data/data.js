@@ -36,3 +36,24 @@ export const objArticles = [
         img: 'https://www.history.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTU3ODc4NTk4NjgxNjM0NTI3/hith-art-heists-scream-2.jpg'
     }
 ]
+export const Category = [
+    { value: '1', label: 'Symbolism' },
+    { value: '2', label: 'Expressionism' },
+    { value: '3', label: 'Modern art' },
+    { value: '4', label: 'Surrealism' },
+    { value: '5', label: 'Realism' },
+  ]
+export const Technik = [
+    { value: '1', label: 'Oil' },
+    { value: '2', label: 'Watercolor' },
+    { value: '3', label: 'Acrylic' }
+  ]
+export const Thema = [
+{ value: '1', label: 'Seascape' },
+    { value: '2', label: 'Mythology' },
+    { value: '3', label: 'Landscape' },
+    { value: '4', label: 'Flowers' },
+    { value: '5', label: 'People' },
+
+  ]
+

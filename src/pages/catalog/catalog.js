@@ -1,75 +1,8 @@
 import React from "react";
 import '../catalog/catalog.css'
 import Selection from "./select.jsx";
-
+import  {catalogItems}  from "../../data/dataCatalog";
 export default function Catalog() {
-    const catalogItems = [
-        {
-            id: 1,
-            item: 'Lord is great',
-            img: 'https://molbert.com.ua/img/gallery/big/picture_15558_9339.jpg',
-            name: 'Gudaev Konstantin',
-            description: {
-                country: 'Ukraine',
-                category: 'Symbolism',
-                technik: 'Oil',
-                thema: 'Seascape'
-            },
-            price: '1160$'
-        },
-        {
-            id: 2,
-            item: 'Ocean power',
-            img: 'https://molbert.com.ua/img/gallery/big/picture_adm_14431_31.jpg',
-            name: 'Renina Marina',
-            description: {
-                country: 'Ukraine',
-                category: 'Symbolism',
-                technik: '',
-                thema: 'Seascape'
-            },
-            price: '580$'
-        },
-        {
-            id: 3,
-            item: 'Sea. Cyprus (Greek part)',
-            img: 'https://molbert.com.ua/img/gallery/big/picture_12124_8760.jpg',
-            name: 'Bondarchuk Anastasiia',
-            description: {
-                country: 'Ukraine',
-                category: 'Symbolism',
-                technik: '',
-                thema: 'Seascape'
-            },
-            price: '280$'
-        },
-        {
-            id: 4,
-            item: "Inhabitants of the underwater world",
-            img: 'https://molbert.com.ua/img/gallery/big/picture_adm_15276_10.jpg',
-            name: 'Ognevych Matilda',
-            description: {
-                country: 'Ukraine',
-                category: 'Symbolism',
-                technik: '',
-                thema: 'Seascape'
-            },
-            price: '180$'
-        },
-        {
-            id: 5,
-            item: "Inhabitants of the underwater world",
-            img: 'https://molbert.com.ua/img/gallery/big/picture_adm_15276_10.jpg',
-            name: 'Ognevych Matilda',
-            description: {
-                country: 'Ukraine',
-                category: 'Symbolism',
-                technik: '',
-                thema: 'Seascape'
-            },
-            price: '180$'
-        }
-    ]
   
     const mapCatalogItems = catalogItems.map(catalogItems => <div> <ul>
         <li className='items'>
