@@ -1,7 +1,7 @@
 import React, {useState} from "react";
-import Article from "../containers/main/article";
-import ViewMore from "../containers/main/moreButton";
-import {objArticles} from "../data"; 
+import Article from "./article";
+import ViewMore from "./moreButton";
+import {objArticles} from "../../data"; 
 
 export default function Articles () {
     const step=3;

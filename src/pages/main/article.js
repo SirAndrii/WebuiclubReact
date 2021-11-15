@@ -1,5 +1,6 @@
 import React from "react";
-import Lorem from "../lorem";
+import Lorem from "../../containers/lorem";
+
 export default function Article ({title,img}) {
 return (
     <div className="col s12 m4 ">

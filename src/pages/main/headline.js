@@ -1,5 +1,5 @@
 import React from "react";
-import Lorem from "../lorem";
+import Lorem from "../../containers/lorem";
 export default function Headline ({altText}) {
 return (
     <div className="col s12">
