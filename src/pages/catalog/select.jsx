@@ -5,8 +5,6 @@ import './catalog.css'
 import { Category } from "../../data/data";
 import { Technik } from "../../data/data";
 import { Thema } from "../../data/data";
-import buttonApllyFilters from "./buttonApplyFilters";
-
 export default function Selection(){
       return(
         <div>
@@ -14,7 +12,7 @@ export default function Selection(){
              <div> <Select options={Category} placeholder='Category'></Select></div>
              <div> <Select options={Technik} placeholder='Technik'></Select></div>
              <div> <Select options={Thema} placeholder='Thema'></Select></div>
-             {buttonApllyFilters}
+             <div className='selectionButton'><button >Apply</button></div>
         </div>
         
         </div> 

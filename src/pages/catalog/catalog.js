@@ -3,6 +3,7 @@ import '../catalog/catalog.css'
 import Selection from "./select.jsx";
 import  {catalogItems}  from "../../data/dataCatalog";
 export default function Catalog() {
+
   
     const mapCatalogItems = catalogItems.map(catalogItems => <div> <ul>
         <li className='items'>
