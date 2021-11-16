@@ -36,11 +36,7 @@ export default function Menu (){
             )
           })
         }
-        {/* 
-        <li><NavLink to="/" className={({ isActive }) => isActive ? "red waves-effect waves-light btn" : "waves-effect waves-light btn"} >Catalog</NavLink></li>
-        <li><NavLink to="/catalog" className={({ isActive }) => isActive ? "red waves-effect waves-light btn" : "waves-effect waves-light btn"} >Catalog</NavLink></li>
-        <li><NavLink to="/cart" className={({ isActive }) => isActive ? "red waves-effect waves-light btn" : "waves-effect waves-light btn"} >Card</NavLink></li> */}
-      </ul>
+        </ul>
       </div>
     );
 }

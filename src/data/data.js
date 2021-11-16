@@ -1,15 +1,15 @@
 export const objArticles = [
     {
         title: 'Title 1',
-        img: 'https://miro.medium.com/max/3600/0*n-2bW82Z6m6U2bij.jpeg'
+        img: 'https://www.artmajeur.com/medias/standard/v/i/vinko-hlebs/artwork/12229280_img-5594.jpg'
     },
     {
         title: 'Title 2',
-        img: 'https://pbs.twimg.com/media/B5pjF_8IEAE_erU.jpg'
+        img: 'https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/blogs/14045/images/7x7vRq8XQ06nlHB4rN6x_0.jpg'
     },
     {
         title: 'Title 3',
-        img: 'https://78.media.tumblr.com/7038fa86c7c2010178ed41a23ac358e2/tumblr_ohkxh5QI181tjftelo1_1280.jpg'
+        img: 'https://artbreakout.com/wp-content/uploads/2020/12/Bony-Ramirez-El-Colmado.jpg'
     },
       {
         title: 'Title 4',
