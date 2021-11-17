@@ -9,10 +9,11 @@ export default function Item() {
     let params = useParams();
     let navigate = useNavigate();
     
-
+    const id = params.item.match(/(\d+)/)[0];
 //Якщо юзер буде вбивати що завгодно, всеодно сторінка буда ренедеритись. Зробити кондішенал редірект в мене не вийшло.
+    /* if(Object.values(obj).includes(+id)) { return ... } else {return <NotFound />} */
 
-    let id = params.item.match(/(\d+)/)[0];
+    
     
     return (
         <>

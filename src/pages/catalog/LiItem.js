@@ -9,7 +9,7 @@ export default function LiItem ({obj}){
       
       return (<li className='items'>
             <div className='ItemsCount'><p>{item}</p></div>
-            <div className='photo'> <img src={img} className='image'></img> </div>           <div></div>
+            <div className='photo'> <img src={img} className='image' alt={item}></img> </div>           <div></div>
             <div className='mainText'>
                 <h6 className='catalogName'> by {name}</h6>
                 <ul>

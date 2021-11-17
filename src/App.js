@@ -11,13 +11,19 @@ import Cart from './pages/cart/cart';
 import Main from './pages/main/main';
 import Item from './pages/catalog/item/item';
 
+export const SearchContext = React.createContext();//оголошуєм тут, щоби зробити звязок хедера з каталогом
 
-export default function App() {
+export function App() {
+  const [searchKey,setSearchKey] = React.useState ("");//задаєм стейт пошуквого запита в корні нашого аппа
+  function handleChange(event) {
+        const { value } = event.target
+        setSearchKey(value)
+    }//функція для контролю нашлого стейту
+
   return (
-    <React.Fragment>
+    <SearchContext.Provider value={{searchKey, handleChange}}> {/* записуєм в контекст обєкт з стейтом, який застосується в фільтрі вивода продуктів і, handleChange в комопнент з пошуковим інпутом  */}
       <Header />
-      
-      <Routes>
+        <Routes>
         <Route path="/" element={<Main/>}/>
         <Route path="/catalog" element={<Catalog/>} >
             {/* <Route path=":item" element={<Item/>} /> */}
@@ -28,7 +34,7 @@ export default function App() {
       </Routes>
  
       <Footer />
-    </React.Fragment>
+    </SearchContext.Provider>
  
   );
 }
