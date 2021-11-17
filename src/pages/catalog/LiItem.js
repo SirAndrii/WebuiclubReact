@@ -1,8 +1,11 @@
 import React from "react";
 import Button from '../../components/button';
+import {useLocation} from 'react-router-dom';
 
 export default function LiItem ({obj}){
-      const {item,img,name,description,price} = obj;
+      const {id,item,img,name,description,price} = obj;
+      
+      const urlItem = useLocation().pathname + '/' + item.toLowerCase().match(/[a-z]+/g).join("-") + '-' + id;
       return (<li className='items'>
             <div className='ItemsCount'><p>{item}</p></div>
             <div className='photo'> <img src={img} className='image'></img> </div>           <div></div>
@@ -16,6 +19,7 @@ export default function LiItem ({obj}){
                 </ul> 
             </div>
             <div className='price'><p>Price</p><p>{price}</p></div>
-            <div className='ViewMore'><Button classname="btn-small">Show more</Button></div>
+            <div className='ViewMore'><Button classname="btn-small" onclick={ ()=> {window.location.href=urlItem} }>Show more</Button></div>
+            {/* <div className='ViewMore'><Button classname="btn-small">Show more</Button></div> */}
         </li>);
   }

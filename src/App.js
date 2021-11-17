@@ -9,6 +9,7 @@ import Footer from './components/footer';
 import Catalog from './pages/catalog/catalog';
 import Cart from './pages/cart/cart';
 import Main from './pages/main/main';
+import Item from './pages/catalog/item/item';
 
 
 export default function App() {
@@ -18,7 +19,10 @@ export default function App() {
       
       <Routes>
         <Route path="/" element={<Main/>}/>
-        <Route path="/catalog" element={<Catalog/>}/>
+        <Route path="/catalog" element={<Catalog/>} >
+            {/* <Route path=":item" element={<Item/>} /> */}
+        </Route> 
+        <Route path="/catalog/:item" element={<Item/>} />
         <Route path="/cart" element={<Cart/>}/>
         <Route path="*" element={<Navigate to="/" />}/>
       </Routes>
