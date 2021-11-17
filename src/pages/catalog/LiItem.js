@@ -6,6 +6,7 @@ export default function LiItem ({obj}){
       const {id,item,img,name,description,price} = obj;
       
       const urlItem = useLocation().pathname + '/' + item.toLowerCase().match(/[a-z]+/g).join("-") + '-' + id;
+      
       return (<li className='items'>
             <div className='ItemsCount'><p>{item}</p></div>
             <div className='photo'> <img src={img} className='image'></img> </div>           <div></div>

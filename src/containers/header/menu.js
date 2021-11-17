@@ -25,7 +25,7 @@ export default function Menu (){
     <ul className="right hide-on-med-and-down">
         {links.map(link => { 
             return (
-              <Li key={link.url}>
+              <Li key={link.url}> 
                 <NavLink 
                   to={link.url} 
                   className={({ isActive }, cls="waves-effect waves-light btn") => isActive ? cls +" green" : cls+ " red" }>
