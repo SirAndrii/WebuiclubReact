@@ -16,21 +16,21 @@ export const SearchContext = React.createContext();//оголошуєм тут, 
 export function App() {
   const [searchKey,setSearchKey] = React.useState ("");//задаєм стейт пошуквого запита в корні нашого аппа
   function handleChange(event) {
-        const { value } = event.target
-        setSearchKey(value)
+        const { value } = event.target;
+        setSearchKey(value);
     }//функція для контролю нашлого стейту
 
   return (
     <SearchContext.Provider value={{searchKey, handleChange}}> {/* записуєм в контекст обєкт з стейтом, який застосується в фільтрі вивода продуктів і, handleChange в комопнент з пошуковим інпутом  */}
-      <Header />
+      <Header /> {/*control search*/}
         <Routes>
-        <Route path="/" element={<Main/>}/>
-        <Route path="/catalog" element={<Catalog/>} >
+          <Route path="/" element={<Main/>}/>
+          <Route path="/catalog" element={<Catalog/>} > {/*filter with search*/}
             {/* <Route path=":item" element={<Item/>} /> */}
-        </Route> 
-        <Route path="/catalog/:item" element={<Item/>} />
-        <Route path="/cart" element={<Cart/>}/>
-        <Route path="*" element={<Navigate to="/" />}/>
+          </Route> 
+          <Route path="/catalog/:item" element={<Item/>} />
+          <Route path="/cart" element={<Cart/>}/>
+          <Route path="*" element={<Navigate to="/" />}/>
       </Routes>
  
       <Footer />
