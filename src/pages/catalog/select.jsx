@@ -22,6 +22,13 @@ export default function Selection(props) {
     }
     setState(newState);
     // props.handleFilters(newState)
+    if (e.label == 'Symbolism') {
+      const filtred = catalogItems.filter(item =>
+        item.description.category === 'Symbolism')
+      setState(filtred)
+      props.handleFilters(filtred)
+
+    }
     if (e.label == 'Expressionism') {
       const filtred = catalogItems.filter(item =>
         item.description.category === 'Expressionism')
