@@ -31,9 +31,7 @@ export default function Catalog() {
     // newFilters[category] = filters
     console.log(filters)
     // setFilters(newFilters)
-
   }
-
 
 
   let mapCatalogItems = catalogItems.map(catalogItem => (
@@ -46,12 +44,14 @@ export default function Catalog() {
   )
   )
 
+
+  const [filters, setState] = useState({category: '', technik: '', thema: ''});
+  const writeFilter = (someObj) => {console.log(someObj)}
+
   return (
     <>
       <h2>{searchKey}</h2>
-      <Selection
-        handleFilters={filters => handleFilters(filters, 'pictures')}
-      />
+      <Selection callback={writeFilter} />
       <div className='lowerContainer'>{mapCatalogItems}</div>
     </>
   );
