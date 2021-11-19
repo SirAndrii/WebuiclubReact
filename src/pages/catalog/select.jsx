@@ -8,41 +8,67 @@ import { Thema } from "../../data/data";
 import { catalogItems } from "../../data/dataCatalog";
 import LiItem from "./LiItem";
 
-export default function Selection() {
+export default function Selection(props) {
+  const [state, setState] = useState([]);
 
-  const [state, setState] = useState(catalogItems); 
   const handleClickCategory = (e) => {
-    let categoryChosen = e.label;
-    if (categoryChosen === 'Symbolism') {
-      const filtred = catalogItems.filter(item => 
-      item.description.category === 'Symbolism')
-      setState(filtred)
-      console.log (filtred);
+    const currentIndex = state.indexOf(e);
+    const newState = [...state];
+
+    if (currentIndex === -1) {
+      newState.push(e);
+    } else {
+      newState.splice(currentIndex, 1)
     }
-    // if (e.label == 'Expressionism') {
-    //   console.log("Expressionism")
-    // }
-    // if (e.label == 'Modern art') {
-    //   console.log("Modern")
-    // }
-    // if (e.label == 'Surrealism') {
-    //   console.log("Surrealism")
-    // }
-    // if (e.label == 'Realism') {
-    //   console.log("Realism")
-    // }
+    setState(newState);
+    // props.handleFilters(newState)
+    if (e.label == 'Symbolism') {
+      const filtred = catalogItems.filter(item =>
+        item.description.category === 'Symbolism')
+      setState(filtred)
+      props.handleFilters(filtred)
+
+    }
+    if (e.label == 'Expressionism') {
+      const filtred = catalogItems.filter(item =>
+        item.description.category === 'Expressionism')
+      setState(filtred)
+      props.handleFilters(filtred)
+
+    }
+    if (e.label == 'Modern art') {
+      const filtred = catalogItems.filter(item =>
+        item.description.category === 'Modern art')
+      setState(filtred)
+      props.handleFilters(filtred)
+
+    }
+    if (e.label == 'Surrealism') {
+      const filtred = catalogItems.filter(item =>
+        item.description.category === 'Surrealism')
+      setState(filtred)
+      props.handleFilters(filtred)
+
+    }
+    if (e.label == 'Realism') {
+      const filtred = catalogItems.filter(item =>
+        item.description.category === 'Realism')
+      setState(filtred)
+      props.handleFilters(filtred)
+
+    }
   }
 
   return (
     <>
-    <div>
-      <div className='fiterSelect'>
-        <div> <Select options={Category} placeholder='Category' onChange={handleClickCategory}></Select></div>
-        <div> <Select options={Technik} placeholder='Technik' ></Select></div>
-        <div> <Select options={Thema} placeholder='Thema' ></Select></div>
-        <div className='selectionButton'><button >Apply</button></div>
+      <div>
+        <div className='fiterSelect'>
+          <div> <Select {...props} options={Category} placeholder='Category' onChange={handleClickCategory} ></Select></div>
+          <div> <Select options={Technik} placeholder='Technik' ></Select></div>
+          <div> <Select options={Thema} placeholder='Thema' ></Select></div>
+          <div className='selectionButton'><button >Apply</button></div>
+        </div>
       </div>
-    </div>
     </>
   )
 }
