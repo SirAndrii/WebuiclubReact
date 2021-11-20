@@ -18,25 +18,16 @@ export default function Catalog() {
     filteredItems = catalogItems;
   }
 
-  const [Filters, setFilters] = useState({
-    pictures: [],
-    price: []
-  });
 
 
-
-
-  const handleFilters = (filters, category) => {
-    // const newFilters = { ...Filters }
-    // newFilters[category] = filters
-    console.log(filters)
-    // setFilters(newFilters)
-
+const [filters, setState] = useState(catalogItems);
+  const writeFilter = (catalogItems) => {
+  const filtredData=catalogItems.filter((item)=>
+  {return item})
+  setState(filtredData);
+  console.log(filtredData)
   }
-
-
-
-  let mapCatalogItems = catalogItems.map(catalogItem => (
+  let mapCatalogItems = filters.map(catalogItem => (
     <div>
       <ul>
         <LiItem obj={catalogItem}></LiItem>
@@ -49,9 +40,7 @@ export default function Catalog() {
   return (
     <>
       <h2>{searchKey}</h2>
-      <Selection
-        handleFilters={filters => handleFilters(filters, 'pictures')}
-      />
+      <Selection callback={writeFilter} />
       <div className='lowerContainer'>{mapCatalogItems}</div>
     </>
   );
