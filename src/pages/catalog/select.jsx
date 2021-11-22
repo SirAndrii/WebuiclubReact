@@ -6,7 +6,7 @@ import { Category } from "../../data/data";
 import { Technik } from "../../data/data";
 import { Thema } from "../../data/data";
 import { catalogItems } from "../../data/dataCatalog";
-import LiItem from "./LiItem";
+import Button from '../../components/button';
 
 export default function Selection(props) {
   const [astate, setState] = useState({category:'',technik:'',thema:''});
@@ -22,7 +22,7 @@ export default function Selection(props) {
           <div> <Select options={Category} placeholder='Category' onChange={e => handleClick(e, 'category')} ></Select></div>
           <div> <Select options={Technik} placeholder='Technik' onChange={e => handleClick(e, 'technik')}></Select></div>
           <div> <Select options={Thema} placeholder='Thema'  onChange={e => handleClick (e, 'thema')}></Select></div>
-          <div className='selectionButton'><button onClick={() => props.callback(astate)} >Apply</button></div>
+          <div className='selectionButton'><Button onclick={()=>props.callback(astate)} classname="btn-small">Apply</Button></div>
         </div>
       </div>
     </>
