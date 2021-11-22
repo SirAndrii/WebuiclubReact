@@ -46,6 +46,15 @@ app.post('/', async (req,res) =>{
     );
 });
 
+app.post('/id', async (req,res) =>{
+    const id = req.body;
+     console.log(req.body) ;
+    res.status(200).json(
+        await Item.findOne(id)/* .then((item)=>console.log(item)).catch( e => console.log(e) )*/
+    ); 
+});
+
+
 
 app.listen(PORT, ()=> {
     console.log('Server has been started successfully on port ' + PORT);
