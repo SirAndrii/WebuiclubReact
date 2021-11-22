@@ -20,6 +20,7 @@ export function App() {
         setSearchKey(value);
     }//функція для контролю нашлого стейту
 
+
   return (
     <SearchContext.Provider value={{searchKey, handleChange}}> {/* записуєм в контекст обєкт з стейтом, який застосується в фільтрі вивода продуктів і, handleChange в комопнент з пошуковим інпутом  */}
       <Header /> {/*control search*/}

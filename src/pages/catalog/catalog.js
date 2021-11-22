@@ -48,7 +48,7 @@ export default function Catalog() {
 
   return (
     <>
-      <h2>{searchKey}</h2>
+     {/*  <h2>{searchKey}</h2> */}
       <Selection
         handleFilters={filters => handleFilters(filters, 'pictures')}
       />
