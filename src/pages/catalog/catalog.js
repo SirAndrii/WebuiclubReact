@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import '../catalog/catalog.css'
 import Selection from "./select.jsx";
 import LiItem from "./LiItem";
@@ -6,53 +6,56 @@ import { SearchContext } from '../../App';
 
 import { catalogItems } from "../../data/dataCatalog";
 
+/* await  */
 
 export default function Catalog() {
+   
+  const [items, setItems] = useState();
+  const [filters, setFilters] = useState({category:'',technik:'',thema:''});
+  
+  useEffect(  ()=>{
+   
+    fetch(`http://localhost:5000/`)
+  .then(response => response.json())
+  .then(data => { setItems(data); console.log('fetched',data) })
+  
+},[]);
+
+  useEffect(  ()=>{
+  fetch(`http://localhost:5000/`,{
+    method:'POST',
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify(filters)
+  })
+  .then(response => response.json())
+  .then(data => { setItems(data); console.log('fetched',data) })
+},[filters]);
 
   const { searchKey } = React.useContext(SearchContext); //отримуєм пошуковий запит
+ 
   let filteredItems;
-  /* filteredItems = searchKey ? catalogItems.filter(catalogItem => JSON.stringify(catalogItem).includes(searchKey)): catalogItems; */
+
   if (searchKey) {
-    filteredItems = catalogItems.filter(catalogItem => JSON.stringify(catalogItem).toLowerCase().includes(searchKey)); //стрінгіфікую строку, щоби зробити пошук входження фрази.
+    filteredItems = items.filter(catalogItem => JSON.stringify(catalogItem).toLowerCase().includes(searchKey)); 
   } else {
-    filteredItems = catalogItems;
+    filteredItems = items;
   }
 
-  const [Filters, setFilters] = useState({
-    pictures: [],
-    price: []
-  });
-
-
-
-
-  const handleFilters = (filters, category) => {
-    // const newFilters = { ...Filters }
-    // newFilters[category] = filters
-    console.log(filters)
-    // setFilters(newFilters)
-
+  const writeFilter = (someObj) => {
+    setFilters(someObj);
   }
-
-
-
-  let mapCatalogItems = catalogItems.map(catalogItem => (
-    <div>
-      <ul>
-        <LiItem obj={catalogItem}></LiItem>
-        {/*console.log(typeof(JSON.stringify(catalogItem)))*/}
-      </ul>
-    </div>
-  )
-  )
+    console.log(filters);
+     
 
   return (
     <>
-     {/*  <h2>{searchKey}</h2> */}
-      <Selection
-        handleFilters={filters => handleFilters(filters, 'pictures')}
-      />
-      <div className='lowerContainer'>{mapCatalogItems}</div>
+      <h2>{searchKey}</h2>
+      <Selection callback={writeFilter} />
+      
+      <div className='row'><ul style={{display: 'flex',
+   flexWrap: 'wrap', justifyContent: 'space-between'}}>{ !items ? "loading" : filteredItems.map(catalogItem => (
+             <LiItem obj={catalogItem}></LiItem>
+     )) }</ul></div> 
     </>
   );
 }
