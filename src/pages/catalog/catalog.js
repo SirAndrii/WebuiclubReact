@@ -5,6 +5,7 @@ import LiItem from "./LiItem";
 import { SearchContext } from '../../App';
 import PropagateLoader from "react-spinners/PropagateLoader";
 import { css } from "@emotion/react";
+import axios from 'axios'
 
 
 import { catalogItems } from "../../data/dataCatalog";
@@ -23,19 +24,19 @@ export default function Catalog() {
   
   useEffect(  ()=>{
    
-    fetch(`http://localhost:5000/`)
-  .then(response => response.json())
+  axios.get(`http://localhost:5000/`)
+  .then(response => response.data)
   .then(data => { setItems(data); console.log('fetched',data) })
   
 },[]);
 
   useEffect(  ()=>{
-  fetch(`http://localhost:5000/`,{
+  axios(`http://localhost:5000/`,{
     method:'POST',
     headers: {"Content-Type": "application/json"},
-    body: JSON.stringify(filters)
+    data: JSON.stringify(filters)
   })
-  .then(response => response.json())
+  .then(response => response.data)
   .then(data => { setItems(data); console.log('fetched',data) })
 },[filters]);
 
