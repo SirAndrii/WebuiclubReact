@@ -69,3 +69,9 @@
     height: fit-content;
     align-self: center;
 }
+.spinner{
+display: flex;   
+justify-content: 'center';
+justify-self: center;
+color: green;
+}

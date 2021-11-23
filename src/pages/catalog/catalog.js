@@ -3,10 +3,18 @@ import '../catalog/catalog.css'
 import Selection from "./select.jsx";
 import LiItem from "./LiItem";
 import { SearchContext } from '../../App';
+import PropagateLoader from "react-spinners/PropagateLoader";
+import { css } from "@emotion/react";
+
 
 import { catalogItems } from "../../data/dataCatalog";
 
 /* await  */
+
+const override = css`
+  display: block;
+  margin: 0 auto;
+`;
 
 export default function Catalog() {
    
@@ -45,7 +53,7 @@ export default function Catalog() {
     setFilters(someObj);
   }
     console.log(filters);
-     
+  
 
   return (
     <>
@@ -53,7 +61,9 @@ export default function Catalog() {
       <Selection callback={writeFilter} />
       
       <div className='row'><ul style={{display: 'flex',
-   flexWrap: 'wrap', justifyContent: 'space-between'}}>{ !items ? "loading" : filteredItems.map(catalogItem => (
+   flexWrap: 'wrap', justifyContent: 'space-evenly'}}>{ !items ? 
+  <span>< PropagateLoader color={'#FA0E0E'} size={30} style={override}/></span>
+    : filteredItems.map(catalogItem => (
              <LiItem obj={catalogItem}></LiItem>
      )) }</ul></div> 
     </>
