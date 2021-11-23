@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser')
 const cors= require('cors');
 
+const routes = require('./routers/routes')
+
 const mongoDB = 'mongodb+srv://webuiclub:somepassword@cluster0.soza5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 
 
@@ -17,43 +19,16 @@ mongoose.connect(mongoDB)
       
 const DB = mongoose.connection;   //You can access the default connection using mongoose.connection 
 
-require ('./mongo/model');
-const Item = mongoose.model('items'); 
+
 
 const app = express ();
 const PORT = 5000;
 app.disable('x-powered-by');
 app.use(cors({ origin: '*' }));
-
-app.get('/', async (req,res) => {
-     res.status(200).json(
-        await Item.find()
-    ); //give all items from MongoDB use allways AWAIT
-});
-
-// parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.post('/', async (req,res) =>{
-    const {category,technik,thema} = req.body;
-    let filter={};
-    if (category){filter['description.category'] = category;}
-    if (technik){filter['description.technik'] = technik;}
-    if (thema){filter['description.thema'] = thema; }
-    
-    res.status(200).json(
-        await Item.find(filter)
-    );
-});
 
-app.post('/id', async (req,res) =>{
-    const id = req.body;
-     console.log(req.body) ;
-    res.status(200).json(
-        await Item.findOne(id)/* .then((item)=>console.log(item)).catch( e => console.log(e) )*/
-    ); 
-});
-
+app.use(routes);
 
 
 app.listen(PORT, ()=> {
