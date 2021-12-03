@@ -37,7 +37,7 @@ export default function Catalog() {
       headers: {"Content-Type": "application/json"},
       data: JSON.stringify(filters)
     })
-    .then(response => {setItems(response.data)})
+    .then(response => {setItems(response.data); console.log(response.data.length)})
     .catch(error => {console.log("error", error)})
     .finally(()=>setLoader(false));
   },[filters]);
@@ -64,12 +64,14 @@ export default function Catalog() {
       <div className='row'>
         <ul style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'space-evenly'}}>
         { 
-          loader ? (<Loader />)
-          :(
-            filteredItems.map(catalogItem => (
-              <LiItem obj={catalogItem}></LiItem>)
-            ) 
-          )
+          loader ? <Loader />
+          : 
+          filteredItems.length>0 ?(
+              filteredItems.map(catalogItem => (
+                <LiItem obj={catalogItem}></LiItem>)
+              )
+            ):
+            <h3>Nothing were found</h3>
         }
         </ul>
       </div> 
