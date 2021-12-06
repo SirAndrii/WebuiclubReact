@@ -4,15 +4,7 @@ import Selection from "./select.jsx";
 import LiItem from "./LiItem";
 import Loader from "../../components/loader"
 import { SearchContext } from '../../App';
-/* import PropagateLoader from "react-spinners/PropagateLoader";
-import { css } from "@emotion/react"; */
-
-/* await  */
-
-/* const override = css`
-  display: block;
-  margin: 0 auto;
-`; */
+import {useSelector} from 'react-redux'
 
 export default function Catalog() {
    
@@ -41,8 +33,10 @@ export default function Catalog() {
     .catch(error => {console.log("error", error)})
     .finally(()=>setLoader(false));
   },[filters]);
+   
+  const searchKey = useSelector( state => state.searchReducer);
 
-  const { searchKey } = React.useContext(SearchContext); //отримуєм пошуковий запит
+  /* const { searchKey } = React.useContext(SearchContext);  *///отримуєм пошуковий запит
  
   let filteredItems;
   if (searchKey) {

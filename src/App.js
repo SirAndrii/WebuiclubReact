@@ -17,10 +17,7 @@ export const SearchContext = React.createContext();//оголошуєм тут, 
 export function App() {
   const [searchKey,setSearchKey] = React.useState ("");//задаєм стейт пошуквого запита в корні нашого аппа
   const [cartItems,setCartItems] = React.useState ([]);//задаєм стейт для корзини
-  function handleSearch(event) {
-        const { value } = event.target;
-        setSearchKey(value);
-    }//функція для контролю нашлого стейту з пошук
+  //функція для контролю нашлого стейту з пошук
   function handleCart(itemId){
     let objIndex=cartItems.findIndex(obj => obj.id === itemId); 
     alert (JSON.stringify(cartItems))
@@ -36,7 +33,7 @@ export function App() {
     
 
   return (
-    <SearchContext.Provider value={{searchKey, handleSearch, cartItems, handleCart }}> {/* записуєм в контекст обєкт з стейтом, який застосується в фільтрі вивода продуктів і, handleChange в комопнент з пошуковим інпутом  */}
+    <SearchContext.Provider value={{cartItems, handleCart }}> {/* записуєм в контекст обєкт з стейтом, який застосується в фільтрі вивода продуктів і, handleChange в комопнент з пошуковим інпутом  */}
       {/* <Header /> control search */}
         <Routes>
           <Route path="/" element={<Layout/>}>
