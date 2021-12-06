@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink, useLocation } from "react-router-dom";
-
+import {SearchContext} from '../../App';
+ 
 /* import  './Menu.css' */
 
 function Li (props){
@@ -12,13 +13,13 @@ function Li (props){
 }
 
 export default function Menu (){
-    
+    const {cartItems} = React.useContext(SearchContext); 
+
     const links=[
       {url: "/",name:"Home"},
       {url: "/catalog",name:"Catalog"},
       {url: "/cart",name:"Cart"}
     ]
-    
     
     return(
       <div className="BoxWithButtons">
@@ -30,7 +31,9 @@ export default function Menu (){
                   to={link.url} 
                   className={({ isActive }, cls="waves-effect waves-light btn") => isActive ? cls +" green" : cls+ " red" }>
                     {link.name}
+                    {link.name==="Cart" && <span>{cartItems.length}</span>}
                   </NavLink>
+                  
               </Li>
               
             )

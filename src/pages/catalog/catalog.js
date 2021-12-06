@@ -55,17 +55,19 @@ export default function Catalog() {
     setFilters(someObj);
   }
     /* console.log(filters); */
-
+if  (loader) {
+  return <Loader /> ;
+}
+           
   return (
     <>
-      <h2>{searchKey}</h2>
+      {/* <h2>{searchKey}</h2> */}
       <Selection callback={writeFilter} />
       
       <div className='row'>
         <ul style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'space-evenly'}}>
         { 
-          loader ? <Loader />
-          : 
+         
           filteredItems.length>0 ?(
               filteredItems.map(catalogItem => (
                 <LiItem obj={catalogItem}></LiItem>)

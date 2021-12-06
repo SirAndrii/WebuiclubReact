@@ -4,10 +4,10 @@ import Articles from './main-articles';
 
 const Main = () => {
   return (
-    <main className="container">
+    <>
        <Headline/>
        <Articles/>
-      </main>
+    </>
   );  
 };
 
